@@ -31,7 +31,7 @@ spec:
     app: chatservice-mysql
   ports:
   - port: 3306
-  type: ClusterIP
+    targetPort: 3306
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -48,7 +48,7 @@ spec:
     spec: 
       containers:
         - name: chatservice
-          image: fabricioveronez/imersao-chatservice:v1
+          image: diefaustino/imersao-chatservice:v1
           ports:
           - containerPort: 8080
             name: http
@@ -76,7 +76,7 @@ spec:
           - name: INITIAL_CHAT_MESSAGE
             value: "Seu nome é Jarvis. Você é a inteligência artificial da iniciativa DevOps && Cloud. Você da suporte a programadores e profissionais de infraestrutura."
           - name: OPENAI_API_KEY
-            value: {{API_TOKEN}}
+            value: ""
           - name: AUTH_TOKEN
             value: "123456"
 ---
