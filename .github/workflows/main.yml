@@ -21,8 +21,8 @@ jobs:
           file: ./chatservice/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USR }}/imersao-chatservice:v${{ github.run_number }}
-            ${{ secrets.DOCKERHUB_USR }}/imersao-chatservice:latest
+            ${{ secrets.DOCKERHUB_NS }}/imersao-chatservice:v${{ github.run_number }}
+            ${{ secrets.DOCKERHUB_NS }}/imersao-chatservice:latest
       - name: Docker build webapp
         uses: docker/build-push-action@v4.1.1
         with: 
@@ -30,5 +30,5 @@ jobs:
           file: ./webapp/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USR }}/imersao-gpt-webapp:v${{ github.run_number }}
-            ${{ secrets.DOCKERHUB_USR }}/imersao-gpt-webapp:latest
+            ${{ secrets.DOCKERHUB_NS }}/imersao-gpt-webapp:v${{ github.run_number }}
+            ${{ secrets.DOCKERHUB_NS }}/imersao-gpt-webapp:latest
